@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "/proto;greeter";
+
+service Say {
+  rpc Hello(Request) returns (Response) {}
+  rpc LotsRequest(stream Request) returns (Response) {}
+  rpc LotsResponse(Request) returns (stream Response) {}
+}
+
+message Request {
+  string name = 1;
+}
+
+message Response {
+  string msg = 1;
+}
